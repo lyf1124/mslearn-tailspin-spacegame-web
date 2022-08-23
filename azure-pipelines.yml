@@ -63,3 +63,12 @@ steps:
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
   condition: succeeded()
+
+- task: UniversalPackages@0
+  displayName: Universal Publish
+  inputs:
+    command: publish
+    publishDirectory: '$(Build.ArtifactStagingDirectory)'
+    vstsFeedPublish: 'dev_learn/Tailspin.SpaceGame.Web.Models'
+    vstsFeedPackagePublish: 'Tailspin.SpaceGame.Web.Models'
+    packagePublishDescription: 'Package Description'
